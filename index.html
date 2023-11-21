@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            height: 100vh;
+            background: linear-gradient(to bottom, #87CEEB, #4682B4); /* 배경 색상 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .image-container {
+            position: relative;
+            
+            width: 2310px;
+            top: 0;
+            margin: auto;
+            overflow: hidden;
+            animation: shake 0.5s cubic-bezier(.08,.82,.6,.2) infinite alternate; /* 0.5초 간격으로 흔들리는 애니메이션 반복 */
+        }
+
+        
+        .image-container img {
+            position: absolute;
+            width: 2310px;
+        height: 1270px;
+            
+            /* 다양한 이미지에 대해 z-index 값을 조절 */
+        }
+        .image-container video {
+            width: 2310px;
+        height: 1270px
+            object-fit: cover;
+            z-index: 4; /* 이미지보다 위에 표시되도록 설정 */
+        }
+
+        #cha{
+         z-index: 7;
+        
+        }
+
+        .flow
+        {   
+            position: absolute;
+            z-index: 3;
+            width: 3534px;
+            height: 1834px;
+            background-image: url('./flow.png');
+            background-size: cover;
+            animation: moveBackground 1s linear infinite; /* 1초 동안 왼쪽으로 무한 이동 */
+        }
+
+        @keyframes moveBackground {
+            0% {
+                background-position: 0 center;
+            }
+            100% {
+                background-position: -3534px center;
+            }
+        }
+        #flow{
+           
+        }   
+        #subway{
+            z-index: 5;
+        
+        }
+
+        @keyframes shake {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            25%, 75% {
+                transform: translateY(-5px);
+            }
+            50% {
+                transform: translateY(5px);
+            }}
+
+        #video{
+            z-index: 1;
+        }
+
+        #text{
+            position: absolute;
+            z-index: 100;
+            font-weight: 700;
+            width: 500px;
+            bottom: 100px;
+            background-color: white;
+            padding: 20px;
+        }
+    </style>
+    <title>Layered Images</title>
+</head>
+<body>
+    <div id="text">
+        구현시도한 것 <br>
+        (필요한 소스들은 일단 대충만들어서 넣었습닌다)<br><br>
+        1. 미세하게 흔들리는 지하철<br>
+        2. 맨 뒤에서 계속 재생되는 비디오(먼배경)<br>
+        3. 한쪽으로 계속 반복되며 흐르는 좌우로 긴 이미지(근경)<br>
+        *3번 때문에 반응형 페이지를 만들기 힘들어서 크기가 고정되게 만들 것인데 다양한 크기의 모니터에 맞지 않을까봐 걱정(일단 27인치 모니터에 맞게 제작함)
+        <br><br>
+        만들어보고 느낀것 <br>
+        원경이 너무 가만히 있으니까 이상한가?<br>
+        원경을 창문 크기에 맞춰서 제작하자 (나머지부분 없어도될듯)
+
+    </div>
+    <div class="image-container">
+        <img src="cha1.png" alt="Image 1" id="cha">
+        <img src="subway.png" alt="Image 3" id="subway">
+        <div class="flow"></div>
+        <video src="sample.mp4" autoplay loop muted  alt="Your Video" id="video"></video>
+        
+        <!-- Add more images as needed -->
+    </div>
+
+    <script>
+        // You can use JavaScript to dynamically add or manipulate images
+        // For example, to add an image programmatically:
+        // var newImage = document.createElement('img');
+        // newImage.src = 'image3.jpg';
+        // newImage.alt = 'Image 3';
+        // document.querySelector('.image-container').appendChild(newImage);
+
+
+    
+    </script>
+</body>
+</html>
